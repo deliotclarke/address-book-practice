@@ -22,17 +22,20 @@ document.querySelector("#saveEntry").addEventListener("click", event => {
 const wishlist = document.querySelector("#wishlist");
 
 document.querySelector("#save").addEventListener("click", () => {
-  const thing = document.querySelector("#thing").value;
-  const place = document.querySelector("#place").value;
+  let thing = document.querySelector("#thing");
+  let place = document.querySelector("#place");
 
   if (thing === "" || place === "") {
     alert("You haven't entered anything in one or more of the fields, please try again.");
   } else {
     wishlist.innerHTML += `
       <div>
-        <p>I can get ${thing} at ${place}.</p>
+        <p>I can get ${thing.value} at ${place.value}.</p>
       </div>
   `
   }
+  thing.value = " ";
+  place.value = " ";
+  document.querySelector("#thing").focus();
 })
 
